@@ -1,0 +1,28 @@
+load("@fbcode_macros//build_defs:go_library.bzl", "go_library")
+load("@fbcode_macros//build_defs:go_unittest.bzl", "go_unittest")
+
+go_library(
+    name = "lmsensors_classic",
+    srcs = [
+        "classic.go",
+    ],
+    tests = [
+        ":lmsensors_classic_test",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/report:report",
+    ],
+)
+
+go_unittest(
+    name = "lmsensors_classic_test",
+    srcs = [
+        "classic_test.go",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/lmsensors/classic:lmsensors_classic",
+        "//experimental/dwat/gosense/pkg/report:report",
+    ],
+)

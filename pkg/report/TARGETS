@@ -1,0 +1,9 @@
+load("@fbcode_macros//build_defs:go_library.bzl", "go_library")
+
+go_library(
+    name = "report",
+    srcs = [
+        "format.go",
+        "report.go",
+    ],
+)

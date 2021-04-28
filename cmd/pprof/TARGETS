@@ -1,0 +1,28 @@
+load("//libfb/go:defs.bzl", "go_package")
+
+go_package(
+    name = "pprof",
+    main = True,
+    tests = [
+        ":cache_test",
+        ":lmsensors_classic_test",
+        ":lmsensors_test",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/lmsensors:lmsensors",
+        "//experimental/dwat/gosense/pkg/lmsensors/classic:lmsensors_classic",
+    ],
+)
+
+go_unittest(
+    name = "main_test",
+    srcs = [
+        "pprof_test.go",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/lmsensors:lmsensors",
+        "//experimental/dwat/gosense/pkg/lmsensors/classic:lmsensors_classic",
+    ],
+)

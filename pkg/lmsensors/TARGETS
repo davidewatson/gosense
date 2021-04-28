@@ -1,0 +1,29 @@
+load("@fbcode_macros//build_defs:go_library.bzl", "go_library")
+load("@fbcode_macros//build_defs:go_unittest.bzl", "go_unittest")
+
+go_library(
+    name = "lmsensors",
+    srcs = [
+        "lmsensors.go",
+    ],
+    go_external_deps = [
+        "github.com/mdlayher/lmsensors",
+    ],
+    tests = [
+        ":lmsensors_test",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+    ],
+)
+
+go_unittest(
+    name = "lmsensors_test",
+    srcs = [
+        "lmsensors_test.go",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/lmsensors:lmsensors",
+    ],
+)

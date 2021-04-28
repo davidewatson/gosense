@@ -1,0 +1,24 @@
+load("@fbcode_macros//build_defs:go_library.bzl", "go_library")
+load("@fbcode_macros//build_defs:go_unittest.bzl", "go_unittest")
+
+go_library(
+    name = "cache",
+    srcs = [
+        "cache.go",
+        "command.go",
+    ],
+    tests = [
+        ":cache_test",
+    ],
+)
+
+go_unittest(
+    name = "cache_test",
+    srcs = [
+        "cache_test.go",
+        "command_test.go",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+    ],
+)

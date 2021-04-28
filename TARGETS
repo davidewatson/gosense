@@ -1,0 +1,16 @@
+load("//libfb/go:defs.bzl", "go_package")
+
+go_package(
+    name = "gosense",
+    main = True,
+    tests = [
+        ":cache_test",
+        ":lmsensors_classic_test",
+        ":lmsensors_test",
+    ],
+    deps = [
+        "//experimental/dwat/gosense/pkg/cache:cache",
+        "//experimental/dwat/gosense/pkg/lmsensors:lmsensors",
+        "//experimental/dwat/gosense/pkg/lmsensors/classic:lmsensors_classic",
+    ],
+)
