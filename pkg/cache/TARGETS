@@ -6,6 +6,7 @@ go_library(
     srcs = [
         "cache.go",
         "command.go",
+        "format.go",
     ],
     tests = [
         ":cache_test",

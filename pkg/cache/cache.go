@@ -15,7 +15,6 @@
 package cache
 
 import (
-	"fmt"
 	"log"
 	"sync/atomic"
 	"time"
@@ -127,16 +126,4 @@ func (e *TimeoutError) Error() string {
 // Timeout return true because this error is only for timeouts.
 func (e *TimeoutError) Timeout() bool {
 	return true
-}
-
-const (
-	// UnknownValue is the value of the cache before it is started.
-	UnknownValue = `{"unknown": "!?"}`
-	// ErrorValue is the value of the cache if update fails.
-	ErrorValue = `{"err": "%v"}`
-)
-
-// FormatError returns a JSON message containing the error.
-func FormatError(err error) []byte {
-	return []byte(fmt.Sprintf(ErrorValue, err))
 }
